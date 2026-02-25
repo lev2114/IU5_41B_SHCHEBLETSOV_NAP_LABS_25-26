@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Калькулятор</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="text/javascript" src="script.js"></script>
+</head>
+
+<body class="body">
+  <div>
+    <button id="btn_change_back" class="btn-default change_back">Сменить тему</button>
+  </div>
+  <div class="calc_background"> <!-- div - это базовый html-контейнер, который может содержать в себе другие html-элементы. -->
+    
+    <!-- блок с экраном калькулятора, где будет выводиться результат вычислений. -->
+    <div id="result" class="result">
+      0
+    </div>
+
+    <!-- блок с кнопками калькулятора. -->
+    <div>
+      <!--горизонтальный ряд из четырех кнопок-->
+      <div>  
+        <button id="btn_op_clear" class="btn-default secondary">C</button>
+        <button id="btn_op_sign" class="btn-default secondary">+/-</button>
+        <button id="btn_op_percent" class="btn-default secondary">%</button>
+        <button id="btn_op_div" class="my-btn primary">/</button>
+      </div>
+
+      <div>
+        <button id="btn_digit_7" class="btn-default">7</button>
+        <button id="btn_digit_8" class="btn-default">8</button>
+        <button id="btn_digit_9" class="btn-default">9</button>
+        <button id="btn_op_mult" class="my-btn primary">x</button>
+      </div>
+
+      <div>
+        <button id="btn_digit_4" class="btn-default">4</button>
+        <button id="btn_digit_5" class="btn-default">5</button>
+        <button id="btn_digit_6" class="btn-default">6</button>
+        <button id="btn_op_minus" class="my-btn primary">-</button>
+      </div>
+
+      <div>
+        <button id="btn_digit_1" class="btn-default">1</button>
+        <button id="btn_digit_2" class="btn-default">2</button>
+        <button id="btn_digit_3" class="btn-default">3</button>
+        <button id="btn_op_plus" class="my-btn primary">+</button>
+      </div>
+
+      <div>
+        <button id="btn_digit_0" class="btn-default">0</button>
+        <button id="btn_digit_dot" class="btn-default">.</button>
+        <button id="btn_op_equal" class="my-btn primary execute">=</button>
+      </div>
+    </div>
+  </div>
+  <details class="details">
+  <summary class="author">Автор</summary>
+  <p><b>ФИО:</b> Щеблецов Л.В.</p>
+  <p><b>Группа:</b> ИУ5-41Б</p>
+  </details>
+  <h2 class="goal">Цель данной лабораторной работы - <b>знакомство</b> с инструментами
+    построения пользовательских интерфейсов web-сайтов: <b>HTML</b>, <b>CSS</b>. 
+    В ходе выполнения работы, вам предстоит ознакомиться с кодом реализации 
+    простого калькулятора, и затем выполнить задания по варианту.
+  </h2>
+</body>
+</html>
