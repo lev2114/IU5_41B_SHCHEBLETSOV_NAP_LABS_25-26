@@ -1,150 +1,223 @@
-/* фон */
-.body{
-    color: #6B6B6B;
-    background-color: #6B6B6B;
-    word-wrap: break-word;
-    font-family: 'Open Sans', sans-serif;
-    line-height: 1.7;
-    font-size: 14px;
+/*   Общая страница  */
+
+.body {
+  background-color: #f4f4f4;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #222;
+  margin: 0;
 }
+
+
+/*   Карточка калькулятора  */
+
+.calc_background {
+  width: 340px;
+  background: #ffffff;
+  border: 1px solid #dcdcdc;
+  border-radius: 6px;
+  padding: 20px;
+  margin: 60px auto;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+.calc_buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 55px;
+  gap: 8px;
+}
+
+/*   Экран  */
+
+.result {
+  width: 100%;
+  height: 60px;
+  margin-bottom: 15px;
+  padding-right: 10px;
+  background: #fafafa;
+  border: 1px solid #dcdcdc;
+  text-align: right;
+  color: #111;
+  font-size: 1.6rem;
+  font-family: Georgia, serif;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+
+/*   Базовая кнопка  */
+
+.my-btn {
+  border-radius: 4px;
+  border: 1px solid #cccccc;
+  background: #ffffff;
+  color: #222;
+  font-size: 1rem;
+  font-family: Georgia, serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.my-btn:hover {
+  background: #e9f1fb;
+}
+
+.my-btn:active {
+  background: #d6e6f9;
+}
+
+
+/*   Кнопки операций  */
+
+.my-btn.primary {
+  background: #0a3d62;
+  color: #ffffff;
+  border: 1px solid #0a3d62;
+}
+
+.my-btn.primary:hover {
+  background: #145a86;
+}
+
+#btn_op_plus {
+  grid-row: span 2;
+}
+
+#btn_digit_0 {
+  grid-column: span 2;
+}
+
+/*   Второстепенные операции  */
+
+.my-btn.secondary {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.my-btn.secondary:hover {
+  background: #e0e0e0;
+}
+
+
+/*   Кнопка "="  */
+
+.my-btn.execute {
+  font-weight: bold;
+  grid-column: span 2;
+}
+
+/*   Кнопка смены темы  */
+
+.my-btn.change_back {
+  display: block;
+  margin: 30px auto 0 auto;
+  width: 200px;
+  height: 40px;
+  background: #0a3d62;
+  color: white;
+  border: none;
+}
+
+.my-btn.change_back:hover {
+  background: #145a86;
+}
+
+
+/*   Кнопка GitHub  */
+
+.my-btn.github-btn {
+  display: block;
+  margin: 15px auto;
+  width: 200px;
+  height: 40px;
+  background: #24292e;
+  color: white;
+  border: none;
+}
+
+.my-btn.github-btn:hover {
+  background: #3b4045;
+}
+
+
+/*   Блок автора  */
 
 .details {
-  font-size: large;
-  color: whitesmoke;
+  max-width: 600px;
+  margin: 40px auto;
   text-align: center;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-weight: lighter;
+  font-size: 0.95rem;
+  color: #444;
 }
 
-.btn-default {
-    background-color: #DA4453;
-    border-color: #DA4453;
-    -webkit-transition: background-color 0.3s linear;
-    -moz-transition: background-color 0.3s linear;
-    -o-transition: background-color 0.3s linear;
-    transition: background-color 0.3s linear;
-    display: inline-block;
-    padding: 6px 12px;
-    margin-bottom: 0;
-    font-size: 14px;
-    width: 50px;
-    height: 50px; 
-    font-weight: 400;
-    line-height: 1.42857143;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-image: none;
-    border: 1px solid transparent;
-    border-radius: 4px;
+.author {
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-.btn-default:active {
-  filter: brightness(130%);
-}
 
-.btn-default:hover {
-    background-color: #363636;
-    border-color: #363636;
-}
+/*   Цель  */
 
-.btn-default.change_back {
-  background: #b21242;
-  width: 110px;
-  height: 70px;
-  margin-left: 90%;
-  border-radius: 15px;
-}
-
-.btn-default.secondary {
-  background: #01ff95
-}
-
-.btn-default.secondary:hover {
-  background: #005230
-}
-
-.author{
-  font-size: 30px;
-  color: blue;
-}
-
-.goal{
-  color:aliceblue;
+.goal {
+  max-width: 700px;
+  margin: 40px auto;
+  font-size: 1rem;
+  color: #222;
   font-weight: 300;
 }
 
 .goal b {
   font-weight: bold;
 }
-/*фон */
-.calc_background{
-  width: 240px;
-  border: 3px solid #ff0000;
-  border-radius: 10px;
-  margin: 0 auto;
+
+/* Тёмная тема  */
+
+.dark-theme {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
 }
 
-/* опишем базовый стиль кнопки калькулятора */
-.my-btn { 
-  margin-right: 5px;           /* задаем отступ от кнопки справа */
-  margin-top: 5px;             /* задаем отступ от кнопки сверху*/
-  width: 50px;                 /* задаем ширину кнопки */
-  height: 50px;                /* задаем высоту кнопки */
-  border-radius: 0%;          /* округляем кнопку */
-  border: none;                /* отключаем обводку */
-  background: #ff0000;         /* задаем серый цвет кнопки */
-  color: white;                /* задаем белый цвет текста внутри кнопки */
-  font-size: 1.5rem;           /* увеличим размер шрифта */
-  font-family: 'Courier New', Courier, monospace; /* сменим шрифт */
-  font-weight: bold;
-  user-select: none;           /* отключаем возможность выделить текст внутри кнопки */
-} 
-
-/* hover - это состояние элемента, когда на него наведен курсор */
-.my-btn:hover {
-  background: rgb(255, 0, 136); /* при наведение курсора на кнопку, она будет окрашена в серый */
+.dark-theme .calc_background {
+  background: #2b2b2b;
+  border: 1px solid #444;
 }
 
-/* active - это состояние активации элемента. В случае кнопки - нажатие на нее */
-.my-btn:active {
-  filter: brightness(130%); /* увеличим интенсивность цвета для эффекта вспышки */
+.dark-theme .result {
+  background: #1a1a1a;
+  border: 1px solid #444;
+  color: #ffffff;
 }
 
-/* селектор для кнопок первостепенных операций */
-.my-btn.primary { 
-  background: #01ff95; /* цвет кнопки оранжевый */
+.dark-theme .my-btn {
+  background: #3a3a3a;
+  color: #ffffff;
+  border: 1px solid #555;
 }
 
-/* селектор для кнопок второстепенных операций */
-.my-btn.secondary { 
-  background: #15941d; /* цвет кнопки сервый */
+.dark-theme .my-btn:hover {
+  background: #4a4a4a;
 }
 
-/* селектор для кнопки расчета выражения (=) */
-.my-btn.execute { 
-  width: 110px;          /* сделаем кнопку шире других */
-  border-radius: 34px;   /* подкорректируем округлость */
+.dark-theme .my-btn.primary {
+  background: #145a86;
+  border: none;
 }
 
-/* селектор для поля вывода результата */
-.result { 
-  width: 220px;
-  height: 50px;
-  margin-bottom: 15px;         /* отступ снизу */
-  padding-right: 10px;         /* выступ справа */
-  background: rgb(73, 73, 73); /* цвет можно задавать и таким образом */
-  text-align: right;           /* примагнитим текст к правой стороне */
-  color: #ff0000;              /* цвет текста белый */
-  font-size: 1.5rem;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-weight: bolder;
-  border-radius: 10px;
+.dark-theme .my-btn.secondary {
+  background: #444;
+}
+
+.dark-theme .goal {
+  color: #ffffff;
+}
+
+.dark-theme .details {
+  color: #e0e0e0;
+}
+
+.dark-theme .author {
+  color: #ffffff;
 }

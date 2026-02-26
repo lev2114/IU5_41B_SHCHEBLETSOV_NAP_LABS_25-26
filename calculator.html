@@ -9,51 +9,58 @@
 
 <body class="body">
   <div>
-    <button id="btn_change_back" class="btn-default change_back">Сменить тему</button>
+    <button id="btn_change_back" class="my-btn change_back">Сменить тему</button>
   </div>
+  <div>
+  <button id="btn_github" class="my-btn github-btn">
+    Ссылка на GitHub
+  </button>
+</div>
   <div class="calc_background"> <!-- div - это базовый html-контейнер, который может содержать в себе другие html-элементы. -->
-    
+
     <!-- блок с экраном калькулятора, где будет выводиться результат вычислений. -->
     <div id="result" class="result">
       0
     </div>
 
     <!-- блок с кнопками калькулятора. -->
-    <div>
-      <!--горизонтальный ряд из четырех кнопок-->
-      <div>  
-        <button id="btn_op_clear" class="btn-default secondary">C</button>
-        <button id="btn_op_sign" class="btn-default secondary">+/-</button>
-        <button id="btn_op_percent" class="btn-default secondary">%</button>
-        <button id="btn_op_div" class="my-btn primary">/</button>
-      </div>
+    <div class="calc_buttons">
 
-      <div>
-        <button id="btn_digit_7" class="btn-default">7</button>
-        <button id="btn_digit_8" class="btn-default">8</button>
-        <button id="btn_digit_9" class="btn-default">9</button>
-        <button id="btn_op_mult" class="my-btn primary">x</button>
-      </div>
+      <button id="btn_op_clear" class="my-btn secondary">C</button>
+      <button id="btn_backspace" class="my-btn secondary">←</button>
+      <button id="btn_op_percent" class="my-btn secondary">%</button>
+      <button id="btn_op_div" class="my-btn primary">/</button>
 
-      <div>
-        <button id="btn_digit_4" class="btn-default">4</button>
-        <button id="btn_digit_5" class="btn-default">5</button>
-        <button id="btn_digit_6" class="btn-default">6</button>
-        <button id="btn_op_minus" class="my-btn primary">-</button>
-      </div>
+      <button id="btn_format" class="my-btn secondary">#,###</button>
+      <button id="btn_op_sign" class="my-btn secondary">+/-</button>
+      <button id="btn_op_sqrt" class="my-btn secondary">√</button>
+      <button id="btn_op_mult" class="my-btn primary">x</button>
 
-      <div>
-        <button id="btn_digit_1" class="btn-default">1</button>
-        <button id="btn_digit_2" class="btn-default">2</button>
-        <button id="btn_digit_3" class="btn-default">3</button>
-        <button id="btn_op_plus" class="my-btn primary">+</button>
-      </div>
+      <button id="btn_op_square" class="my-btn secondary">x²</button>
+      <button id="btn_op_factorial" class="my-btn secondary">x!</button>
+      <button id="btn_000" class="my-btn secondary">000</button>
+      <button id="btn_op_minus" class="my-btn primary">-</button>
 
-      <div>
-        <button id="btn_digit_0" class="btn-default">0</button>
-        <button id="btn_digit_dot" class="btn-default">.</button>
-        <button id="btn_op_equal" class="my-btn primary execute">=</button>
-      </div>
+
+      <button id="btn_digit_7" class="my-btn">7</button>
+      <button id="btn_digit_8" class="my-btn">8</button>
+      <button id="btn_digit_9" class="my-btn">9</button>
+      <button id="btn_op_plus" class="my-btn primary">+</button>
+
+
+      <button id="btn_digit_4" class="my-btn">4</button>
+      <button id="btn_digit_5" class="my-btn">5</button>
+      <button id="btn_digit_6" class="my-btn">6</button>
+
+
+      <button id="btn_digit_1" class="my-btn">1</button>
+      <button id="btn_digit_2" class="my-btn">2</button>
+      <button id="btn_digit_3" class="my-btn">3</button>
+      <button id="btn_digit_dot" class="my-btn secondary">.</button>
+
+      <button id="btn_digit_0" class="my-btn">0</button>
+      <button id="btn_op_equal" class="my-btn primary execute">=</button>
+
     </div>
   </div>
   <details class="details">
@@ -62,8 +69,8 @@
   <p><b>Группа:</b> ИУ5-41Б</p>
   </details>
   <h2 class="goal">Цель данной лабораторной работы - <b>знакомство</b> с инструментами
-    построения пользовательских интерфейсов web-сайтов: <b>HTML</b>, <b>CSS</b>. 
-    В ходе выполнения работы, вам предстоит ознакомиться с кодом реализации 
+    построения пользовательских интерфейсов web-сайтов: <b>HTML</b>, <b>CSS</b>.
+    В ходе выполнения работы, вам предстоит ознакомиться с кодом реализации
     простого калькулятора, и затем выполнить задания по варианту.
   </h2>
 </body>
