@@ -86,7 +86,7 @@ window.onload = function () {
         outputElement.innerHTML = 0;
     };
 
-    /* Смена знака (+/-) */
+    /* Смена знака */
 
     document.getElementById("btn_op_sign").onclick = function () {
 
@@ -102,7 +102,7 @@ window.onload = function () {
         }
     };
 
-    /* Проценты (%) */
+    /* Проценты */
 
     document.getElementById("btn_op_percent").onclick = function () {
 
@@ -204,6 +204,7 @@ window.onload = function () {
             outputElement.innerHTML = formatNumber(b);
         }
     };
+
 
     document.getElementById("btn_backspace").onclick = function () {
 
