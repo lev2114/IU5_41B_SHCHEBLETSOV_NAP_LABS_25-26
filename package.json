@@ -1,0 +1,22 @@
+{
+  "name": "iu5_41b_shchebletsov_nap_labs_25-26",
+  "version": "1.0.0",
+  "description": "lab3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lev2114/IU5_41B_SHCHEBLETSOV_NAP_LABS_25-26.git"
+  },
+  "author": "lev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lev2114/IU5_41B_SHCHEBLETSOV_NAP_LABS_25-26/issues"
+  },
+  "homepage": "https://github.com/lev2114/IU5_41B_SHCHEBLETSOV_NAP_LABS_25-26#readme",
+  "dependencies": {
+    "bootstrap": "^5.3.8"
+  }
+}

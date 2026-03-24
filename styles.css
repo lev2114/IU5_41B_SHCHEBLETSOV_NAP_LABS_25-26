@@ -1,0 +1,77 @@
+body {
+    background-color: #ffffff;
+    font-family: Georgia, "Times New Roman", serif;
+    color: #222;
+    margin: 0;
+}
+
+.header {
+    background: #071c2e;
+    color: white;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.header-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.header-home-btn {
+    background: #14599d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.header-home-btn:hover {
+    background: #083672;
+}
+
+.card {
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+    background: #ffffff;
+}
+
+.card-title {
+    color: #071c2e;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background: #14599d;
+    border: none;
+}
+
+.btn-primary:hover {
+    background: #083672;
+}
+
+.form-control:focus {
+    border-color: #14599d;
+    box-shadow: 0 0 0 0.2rem rgba(20, 89, 157, 0.15);
+}
+
+/* кнопка Britannica outline */
+
+.btn-outline-britannica {
+    background: white;
+    color: #14599d;
+    border: 1px solid #14599d;
+    border-radius: 4px;
+}
+
+.btn-outline-britannica:hover {
+    background: #14599d;
+    color: white;
+}
