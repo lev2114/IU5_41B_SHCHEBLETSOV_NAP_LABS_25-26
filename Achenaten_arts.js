@@ -8,8 +8,6 @@ window.onload = function () {
     const outputElement = document.getElementById("result");
     const digitButtons = document.querySelectorAll('[id ^= "btn_digit_"]');
 
-    let useSeparator = false;
-
     /* Ввод цифр */
 
     function onDigitButtonClicked(digit) {
@@ -19,14 +17,14 @@ window.onload = function () {
             if (digit === '.' && a.includes('.')) return;
 
             a += digit;
-             outputElement.innerHTML = formatNumber(a) || 0;
+            outputElement.innerHTML = a || 0;
         }
         else {
 
             if (digit === '.' && b.includes('.')) return;
 
             b += digit;
-             outputElement.innerHTML = formatNumber(b);;
+            outputElement.innerHTML = b;
         }
     }
 
@@ -72,7 +70,7 @@ window.onload = function () {
     document.getElementById("btn_op_minus").onclick = () => selectOperation('-');
     document.getElementById("btn_op_div").onclick = () => selectOperation('/');
 
-    /* Очистка  */
+    /* Очистка */
 
     function clear() {
         a = '';
@@ -93,12 +91,12 @@ window.onload = function () {
         if (!selectedOperation) {
             if (a === '') return;
             a = (-parseFloat(a)).toString();
-             outputElement.innerHTML = formatNumber(a);;
+            outputElement.innerHTML = a;
         }
         else {
             if (b === '') return;
             b = (-parseFloat(b)).toString();
-             outputElement.innerHTML = formatNumber(b);;
+            outputElement.innerHTML = b;
         }
     };
 
@@ -109,12 +107,12 @@ window.onload = function () {
         if (!selectedOperation) {
             if (a === '') return;
             a = (parseFloat(a) / 100).toString();
-             outputElement.innerHTML = formatNumber(a);;
+            outputElement.innerHTML = a;
         }
         else {
             if (b === '') return;
             b = (parseFloat(b) / 100).toString();
-             outputElement.innerHTML = formatNumber(b);;
+            outputElement.innerHTML = b;
         }
     };
 
@@ -155,10 +153,10 @@ window.onload = function () {
         b = '';
         selectedOperation = null;
 
-         outputElement.innerHTML = formatNumber(a);;
+        outputElement.innerHTML = a;
     };
 
-    /* ссылка на гит*/
+    /* ссылка на гит */
 
     document.getElementById("btn_github").onclick = function () {
         window.open("https://github.com/lev2114/IU5_41B_SHCHEBLETSOV_NAP_LABS_25-26#", "_blank");
@@ -179,41 +177,45 @@ window.onload = function () {
         }
     };
 
-    /* разделители */
+    /* перевод египетских лет */
 
-    function formatNumber(value) {
+    function egyptianYearToModern(year) {
 
-        if (!useSeparator) return value;
+        const akhenatenStart = 1353;
 
-        let number = parseFloat(value);
+        return -1*(akhenatenStart - (year - 1));
 
-        if (isNaN(number)) return value;
+    }
 
-        return number.toLocaleString("ru-RU", {
-        maximumFractionDigits: 15
-        });
-    };
-
-    document.getElementById("btn_format").onclick = function () {
-
-        useSeparator = !useSeparator;
+    document.getElementById("btn_egyptian_years").onclick = function () {
 
         if (!selectedOperation) {
-            outputElement.innerHTML = formatNumber(a || "0");
+
+            if (a === '') return;
+
+            a = egyptianYearToModern(parseFloat(a)).toString();
+
+            outputElement.innerHTML = a;
+
         } else {
-            outputElement.innerHTML = formatNumber(b);
+
+            if (b === '') return;
+
+            b = egyptianYearToModern(parseFloat(b)).toString();
+
+            outputElement.innerHTML = b;
+
         }
     };
-
 
     document.getElementById("btn_backspace").onclick = function () {
 
         if (!selectedOperation) {
             a = a.slice(0, -1);
-            outputElement.innerHTML = formatNumber(a) || 0;
+            outputElement.innerHTML = a || 0;
         } else {
             b = b.slice(0, -1);
-            outputElement.innerHTML = formatNumber(b) || 0;
+            outputElement.innerHTML = b || 0;
         }
     };
 
@@ -221,10 +223,10 @@ window.onload = function () {
 
         if (!selectedOperation) {
             a += "000";
-             outputElement.innerHTML = formatNumber(a);
+            outputElement.innerHTML = a;
         } else {
             b += "000";
-             outputElement.innerHTML = formatNumber(b);
+            outputElement.innerHTML = b;
         }
     };
 
@@ -238,7 +240,7 @@ window.onload = function () {
                 return;
             }
             a = Math.sqrt(+a).toString();
-            outputElement.innerHTML = formatNumber(a);
+            outputElement.innerHTML = a;
         } else {
             if (b === '') return;
             if (+b < 0) {
@@ -247,7 +249,7 @@ window.onload = function () {
                 return;
             }
             b = Math.sqrt(+b).toString();
-             outputElement.innerHTML = formatNumber(b);
+            outputElement.innerHTML = b;
         }
     };
 
@@ -256,11 +258,11 @@ window.onload = function () {
         if (!selectedOperation) {
             if (a === '') return;
             a = ((+a) * (+a)).toString();
-             outputElement.innerHTML = formatNumber(a)
+            outputElement.innerHTML = a
         } else {
             if (b === '') return;
             b = ((+b) * (+b)).toString();
-            outputElement.innerHTML = formatNumber(b)
+            outputElement.innerHTML = b
         }
     };
 
@@ -284,7 +286,7 @@ window.onload = function () {
                 return;
             }
             a = res.toString();
-             outputElement.innerHTML = formatNumber(a)
+            outputElement.innerHTML = a
         } else {
             if (b === '') return;
             let res = factorial(+b);
@@ -294,10 +296,8 @@ window.onload = function () {
                 return;
             }
             b = res.toString();
-            outputElement.innerHTML = formatNumber(b)
+            outputElement.innerHTML = b
         }
     };
-
-
 
 };

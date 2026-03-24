@@ -1,7 +1,7 @@
 /*   Общая страница  */
 
 .body {
-  background-color: #f4f4f4;
+  background-color: #ffffff;
   font-family: Georgia, "Times New Roman", serif;
   color: #222;
   margin: 0;
@@ -34,7 +34,7 @@
   height: 60px;
   margin-bottom: 15px;
   padding-right: 10px;
-  background: #fafafa;
+  background: #f8f9fa;
   border: 1px solid #dcdcdc;
   text-align: right;
   color: #111;
@@ -51,17 +51,16 @@
 
 .my-btn {
   border-radius: 4px;
-  border: 1px solid #cccccc;
+  border: 1px solid #1a73e8;
   background: #ffffff;
-  color: #222;
+  color: #1a73e8;
   font-size: 1rem;
   font-family: Georgia, serif;
   cursor: pointer;
-  transition: all 0.2s ease;
 }
 
 .my-btn:hover {
-  background: #e9f1fb;
+  background: #e8f0fe;
 }
 
 .my-btn:active {
@@ -72,13 +71,13 @@
 /*   Кнопки операций  */
 
 .my-btn.primary {
-  background: #0a3d62;
-  color: #ffffff;
-  border: 1px solid #0a3d62;
+  background: #14599d;
+  color: white;
+  border: none;
 }
 
 .my-btn.primary:hover {
-  background: #145a86;
+  background: #083672;
 }
 
 #btn_op_plus {
@@ -92,8 +91,9 @@
 /*   Второстепенные операции  */
 
 .my-btn.secondary {
-  background: #f0f0f0;
-  color: #333;
+  background: white;
+  border: 1px solid #14599d;
+  color: #14599d;
 }
 
 .my-btn.secondary:hover {
@@ -115,7 +115,7 @@
   margin: 30px auto 0 auto;
   width: 200px;
   height: 40px;
-  background: #0a3d62;
+  background: oklch(54.6% 0.245 262.881);
   color: white;
   border: none;
 }
@@ -220,4 +220,15 @@
 
 .dark-theme .author {
   color: #ffffff;
+}
+
+.header {
+  background: #071c2e;
+  color: white;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  font-size: 1.3rem;
+  font-family: Georgia, "Times New Roman", serif;
 }
