@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/lev2114/IU5_41B_SHCHEBLETSOV_NAP_LABS_25-26#readme",
   "dependencies": {
-    "bootstrap": "^5.3.8"
+    "bootstrap": "^5.3.8",
+    "three": "^0.183.2"
   }
 }

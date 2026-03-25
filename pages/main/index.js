@@ -3,6 +3,11 @@ import { ProductCardComponent } from "../../components/product-card/index.js"
 import { HeaderComponent } from "../../components/header/index.js"
 import { ProductPage } from "../product/index.js"
 
+import { sumOfSquares } from "../../utils/amarnaMath.js"
+import { isEqualObj } from "../../utils/amarnaMath.js"
+import { removeValues } from "../../utils/amarnaMath.js"
+import { merge } from "../../utils/amarnaMath.js"
+
 export class MainPage {
 
     constructor(parent) {
@@ -19,6 +24,29 @@ export class MainPage {
             <div class="container mt-4">
 
                 <div class="mb-3">
+                    <div class="analysis-block mt-3">
+
+                        <h5>Анализ амарнских артефактов</h5>
+
+                        <button id="calc-sum" class="btn btn-outline-britannica">
+                            Сумма квадратов ID
+                        </button>
+
+                        <button id="compare-artifacts" class="btn btn-outline-britannica">
+                            Сравнить первые два объекта
+                        </button>
+
+                        <button id="remove-test" class="btn btn-outline-britannica">
+                            Удалить ID 1 и 2
+                        </button>
+
+                        <button id="merge-test" class="btn btn-outline-britannica">
+                            Merge объектов
+                        </button>
+
+                        <div id="analysis-result" class="mt-2"></div>
+
+                    </div>
 
                     <input
                         id="search"
@@ -132,6 +160,55 @@ export class MainPage {
                 "input",
                 this.filterCards.bind(this)
             )
+
+        document
+            .getElementById("calc-sum")
+            .addEventListener("click", () => {
+
+                const ids = this.data.map(a => a.id)
+
+                const result = sumOfSquares(ids)
+
+                document.getElementById("analysis-result").innerText =
+                    "Сумма квадратов ID: " + result
+            })
+
+        document
+            .getElementById("compare-artifacts")
+            .addEventListener("click", () => {
+
+                if (this.data.length < 2) return
+
+                const equal = isEqualObj(this.data[0], this.data[1])
+
+                document.getElementById("analysis-result").innerText =
+                    "Первые два объекта одинаковы: " + equal
+            })
+
+        document
+            .getElementById("remove-test")
+            .addEventListener("click", () => {
+
+                const ids = this.data.map(a => a.id)
+
+                const result = removeValues(ids,1,2)
+
+                document.getElementById("analysis-result").innerText =
+                    "ID без 1 и 2: " + result.join(", ")
+            })
+
+        document
+            .getElementById("merge-test")
+            .addEventListener("click", () => {
+
+                const obj1 = this.data[0]
+                const obj2 = { period: "Amarna", dynasty: "XVIII" }
+
+                const merged = merge(obj1,obj2)
+
+                document.getElementById("analysis-result").innerText =
+                    JSON.stringify(merged)
+            })
     }
 
 }
