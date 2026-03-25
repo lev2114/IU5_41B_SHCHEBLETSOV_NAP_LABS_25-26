@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "src": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Akhenaten.jpg",
+    "title": "Akhenaten statue",
+    "text": "Amarna period sculpture"
+  },
+  {
+    "id": 3,
+    "src": "img.jpg",
+    "title": "Aten temple",
+    "text": "Temple of Aten"
+  }
+]
