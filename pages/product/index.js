@@ -7,30 +7,15 @@ import * as THREE from "three"
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js"
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js"
 
-import { ajax } from "../../modules/ajax.js"
-import { artworkUrls } from "../../modules/artworkUrls.js"
-
 export class ProductPage {
-    constructor(parent, id) {
+    constructor(parent, id, data) {
         this.parent = parent
         this.id = id
+        this.data = data
     }
 
     getData() {
-        ajax.get(
-            artworkUrls.getArtworkById(this.id),
-            (data) => {
-                this.renderData(data)
-            }
-        )
-    }
-
-    renderData(item) {
-
-        const product = new ProductComponent(this.pageRoot)
-
-        product.render(item)
-
+        return this.data.find(item => item.id == this.id)
     }
 
     get pageRoot() {
@@ -138,7 +123,9 @@ export class ProductPage {
         const backButton = new BackButtonComponent(this.pageRoot)
         backButton.render(this.clickBack.bind(this))
 
-        this.getData()
+        const data = this.getData()
+        const product = new ProductComponent(this.pageRoot)
+        product.render(data)
 
         this.init3DModel()
     }
