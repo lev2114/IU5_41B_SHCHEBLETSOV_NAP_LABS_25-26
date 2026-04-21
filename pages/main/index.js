@@ -8,7 +8,6 @@ import { isEqualObj } from "../../utils/amarnaMath.js"
 import { removeValues } from "../../utils/amarnaMath.js"
 import { merge } from "../../utils/amarnaMath.js"
 
-import { ajax } from "../../modules/ajax.js"
 import { artworkUrls } from "../../modules/artworkUrls.js"
 
 export class MainPage {
@@ -74,18 +73,31 @@ export class MainPage {
         `
     }
 
-    addCard() {
+    async addCard() {
 
-        const first = this.data[0]
-
-        const copy = {
-            ...first,
-            id: Date.now()
+        const newItem = {
+            title: "Новая услуга",
+            text: "Добавлено через fetch",
+            src: "https://via.placeholder.com/150"
         }
 
-        this.data.push(copy)
+        try {
+            await fetch(
+                artworkUrls.createArtwork(),
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(newItem)
+                }
+            )
 
-        this.renderCards()
+            this.getData()
+
+        } catch (e) {
+            console.error(e)
+        }
     }
 
     openCard(e) {
@@ -98,25 +110,41 @@ export class MainPage {
 
     }
 
-    deleteCard(id) {
+    async deleteCard(id) {
 
-        this.data = this.data.filter(item => item.id != id)
+        try {
+            await fetch(
+                artworkUrls.removeArtworkById(id),
+                {
+                    method: "DELETE"
+                }
+            )
 
-        this.renderCards()
+            this.getData()
+
+        } catch (e) {
+            console.error(e)
+        }
     }
 
-    filterCards() {
+    async filterCards() {
 
         const value = document
             .getElementById("search")
             .value
 
-        ajax.get(
-            `http://localhost:3000/artworks?title=${value}`,
-            (data) => {
-                this.renderData(data)
-            }
-        )
+        try {
+            const response = await fetch(
+                artworkUrls.getArtworksByTitle(value)
+            )
+
+            const data = await response.json()
+
+            this.renderData(data)
+
+        } catch (e) {
+            console.error(e)
+        }
     }
 
     renderCards(list = this.data) {
@@ -136,14 +164,17 @@ export class MainPage {
         })
     }
 
-    getData() {
-        ajax.get(
-            "http://localhost:3000/artworks",
-            (data) => {
-                this.data = data
-                this.renderData(data)
-            }
-        )
+    async getData() {
+        try {
+            const response = await fetch(artworkUrls.getArtworks())
+            const data = await response.json()
+
+            this.data = data
+            this.renderData(data)
+
+        } catch (e) {
+            console.error("Ошибка загрузки:", e)
+        }
     }
 
     renderData(items) {

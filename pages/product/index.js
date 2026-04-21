@@ -7,7 +7,6 @@ import * as THREE from "three"
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js"
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js"
 
-import { ajax } from "../../modules/ajax.js"
 import { artworkUrls } from "../../modules/artworkUrls.js"
 
 export class ProductPage {
@@ -16,14 +15,18 @@ export class ProductPage {
         this.id = id
     }
 
-    getData() {
-        ajax.get(
-            artworkUrls.getArtworkById(this.id),
-            (data) => {
-                this.renderData(data)
-            }
-        )
+    async getData() {
+    try {
+        const response = await fetch(artworkUrls.getArtworkById(this.id))
+        const data = await response.json()
+
+        this.data = data
+        this.renderData(data)
+
+    } catch (e) {
+        console.error("Ошибка загрузки:", e)
     }
+}
 
     renderData(item) {
 

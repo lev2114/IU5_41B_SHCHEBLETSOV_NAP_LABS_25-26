@@ -22,6 +22,10 @@ class ArtworkUrls {
     removeArtworkById(id) {
         return `${this.baseUrl}/artworks/${id}`;
     }
+
+    getArtworksByTitle(title) {
+        return `${this.baseUrl}/artworks?title=${title}`
+    }
 }
 
 export const artworkUrls = new ArtworkUrls();
