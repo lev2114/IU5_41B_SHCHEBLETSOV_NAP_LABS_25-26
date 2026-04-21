@@ -1,4 +1,4 @@
-import {ProductComponent} from "../../components/product/index.js";
+import {ProductComponent} from "../../components/service/index.js";
 import {BackButtonComponent} from "../../components/back-button/index.js";
 import {MainPage} from "../main/index.js";
 import { HeaderComponent } from "../../components/header/index.js"

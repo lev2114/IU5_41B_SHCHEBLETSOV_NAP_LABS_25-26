@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "iu5_41b_shchebletsov_nap_labs_25-26",
   "version": "1.0.0",
   "description": "lab3",

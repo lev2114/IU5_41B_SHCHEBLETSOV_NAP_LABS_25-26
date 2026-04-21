@@ -1,5 +1,5 @@
 import { amarnaCollection } from "../../data/amarna.js"
-import { ProductCardComponent } from "../../components/product-card/index.js"
+import { ProductCardComponent } from "../../components/service-card/index.js"
 import { HeaderComponent } from "../../components/header/index.js"
 import { ProductPage } from "../product/index.js"
 
@@ -26,14 +26,14 @@ export class MainPage {
                 <div class="mb-3">
                     <div class="analysis-block mt-3">
 
-                        <h5>Анализ амарнских артефактов</h5>
+                        <h5>Анализ амарнских услуг</h5>
 
                         <button id="calc-sum" class="btn btn-outline-britannica">
                             Сумма квадратов ID
                         </button>
 
                         <button id="compare-artifacts" class="btn btn-outline-britannica">
-                            Сравнить первые два объекта
+                            Сравнить первые две услуги
                         </button>
 
                         <button id="remove-test" class="btn btn-outline-britannica">
@@ -41,7 +41,7 @@ export class MainPage {
                         </button>
 
                         <button id="merge-test" class="btn btn-outline-britannica">
-                            Merge объектов
+                            Merge услуг
                         </button>
 
                         <div id="analysis-result" class="mt-2"></div>

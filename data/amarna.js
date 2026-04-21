@@ -1,24 +1,37 @@
 export const amarnaCollection = [
-
-{
-    id:1,
-    src:"https://арт-релиз.рф/wp-content/uploads/2019/11/%D0%AD%D1%85%D0%BD%D0%B0%D1%82%D0%BE%D0%BD-%D0%B8-%D0%9D%D0%B5%D1%84%D0%B5%D1%80%D1%82%D0%B8%D1%82%D0%B8-%D0%9C%D1%83%D0%B7%D0%B5%D0%B9-%D0%91%D0%B5%D1%80%D0%BB%D0%B8%D0%BD%D0%B0.-%D0%90%D1%80%D1%82-%D0%A0%D0%B5%D0%BB%D0%B8%D0%B7.%D0%A0%D0%A4.jpg",
-    title:"Эхнатон и Нефертити",
-    text:"Рельеф периода Амарны"
-},
-
-{
-    id:2,
-    src:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Akhenaten_statue.jpg/330px-Akhenaten_statue.jpg",
-    title:"Рельеф Эхнатона",
-    text:"Изображение фараона в амарнском стиле"
-},
-
-{
-    id:3,
-    src:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Nofretete_Neues_Museum.jpg/250px-Nofretete_Neues_Museum.jpg",
-    title:"Бюст Нефертити",
-    text:"Самая известная скульптура амарнского искусства"
-}
-
+    {
+        id: 1,
+        src: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Akhenaten_statue.jpg/330px-Akhenaten_statue.jpg",
+        title: "Эхнатон",
+        text: "Изображаемый правитель амарнского периода, центральная фигура амарнского искусства.",
+        type: "человек"
+    },
+    {
+        id: 2,
+        src: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Nofretete_Neues_Museum.jpg/330px-Nofretete_Neues_Museum.jpg",
+        title: "Нефертити",
+        text: "Изображаемая царица, один из самых узнаваемых образов эпохи Эхнатона.",
+        type: "человек"
+    },
+    {
+        id: 3,
+        src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCiBbZxcD2wf5WLO9GXhnkR7tWECiBYeQT9HT3Q3_Sq7vDhXSV1Yk6SAl6ez34Vw5sj2Odyz4ig3QKaQ46vLiN7EThp3qryqvGE57gfbBs&s=10",
+        title: "Царские дочери",
+        text: "Изображаемые члены царской семьи, часто встречающиеся в амарнских сценах.",
+        type: "человек"
+    },
+    {
+        id: 4,
+        src: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Blue_crown.svg/250px-Blue_crown.svg.png",
+        title: "Атрибуты власти",
+        text: "Категория предметов, связанных с царской властью, статусом и официальным образом правителя.",
+        type: "категория предметов"
+    },
+    {
+        id: 5,
+        src: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Aten.svg/330px-Aten.svg.png",
+        title: "Культовые символы",
+        text: "Категория предметов религиозного назначения, связанных с культом Атона.",
+        type: "категория предметов"
+    }
 ]
