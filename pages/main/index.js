@@ -1,20 +1,17 @@
-import { amarnaCollection } from "../../data/amarna.js"
 import { ProductCardComponent } from "../../components/service-card/index.js"
 import { HeaderComponent } from "../../components/header/index.js"
 import { ProductPage } from "../product/index.js"
 
-import { sumOfSquares } from "../../utils/amarnaMath.js"
-import { isEqualObj } from "../../utils/amarnaMath.js"
-import { removeValues } from "../../utils/amarnaMath.js"
-import { merge } from "../../utils/amarnaMath.js"
+import { sumOfSquares, isEqualObj, removeValues, merge } from "../../utils/amarnaMath.js"
 
-import { ajax } from "../../modules/ajax.js"
 import { artworkUrls } from "../../modules/artworkUrls.js"
+import { ajax } from "../../modules/ajax.js"
 
 export class MainPage {
 
     constructor(parent) {
         this.parent = parent
+        this.data = []
     }
 
     get pageRoot() {
@@ -27,7 +24,6 @@ export class MainPage {
 
                 <div class="mb-3">
                     <div class="analysis-block mt-3">
-
                         <h5>Анализ амарнских услуг</h5>
 
                         <button id="calc-sum" class="btn btn-outline-britannica">
@@ -47,98 +43,60 @@ export class MainPage {
                         </button>
 
                         <div id="analysis-result" class="mt-2"></div>
-
                     </div>
 
-                    <input
-                        id="search"
-                        class="form-control"
-                        placeholder="Поиск по амарнскому искусству"
-                    >
+                    <input id="search" class="form-control" placeholder="Поиск">
 
-                    <button
-                        id="add-card"
-                        class="btn btn-primary mt-2"
-                    >
+                    <button id="add-card" class="btn btn-primary mt-2">
                         Добавить карточку
                     </button>
-
                 </div>
 
-                <div
-                    id="main-page"
-                    class="d-flex flex-wrap gap-3"
-                ></div>
+                <div id="main-page" class="d-flex flex-wrap gap-3"></div>
 
             </div>
         `
     }
 
     addCard() {
-
-        const first = this.data[0]
-
-        const copy = {
-            ...first,
-            id: Date.now()
+        const newItem = {
+            title: "Новая услуга",
+            text: "Добавлено через XHR",
+            src: "https://via.placeholder.com/150"
         }
 
-        this.data.push(copy)
-
-        this.renderCards()
-    }
-
-    openCard(e) {
-
-        const cardId = e.target.dataset.id
-
-        const productPage = new ProductPage(this.parent, cardId)
-
-        productPage.render()
-
+        ajax.post(
+            artworkUrls.createArtwork(),
+            newItem,
+            () => {
+                this.getData()
+            }
+        )
     }
 
     deleteCard(id) {
-
-        this.data = this.data.filter(item => item.id != id)
-
-        this.renderCards()
+        ajax.delete(
+            artworkUrls.removeArtworkById(id),
+            () => {
+                this.getData()
+            }
+        )
     }
 
     filterCards() {
-
-        const value = document
-            .getElementById("search")
-            .value
+        const value = document.getElementById("search").value
 
         ajax.get(
-            `http://localhost:3000/artworks?title=${value}`,
+            artworkUrls.getArtworksByTitle(value),
             (data) => {
                 this.renderData(data)
             }
         )
     }
 
-    renderCards(list = this.data) {
-
-        this.pageRoot.innerHTML = ""
-
-        list.forEach(item => {
-
-            const card = new ProductCardComponent(this.pageRoot)
-
-            card.render(
-                item,
-                this.openCard.bind(this),
-                this.deleteCard.bind(this)
-            )
-
-        })
-    }
-
     getData() {
         ajax.get(
-            "http://localhost:3000/artworks",
+            artworkUrls.getArtworks(),
             (data) => {
                 this.data = data
                 this.renderData(data)
@@ -146,12 +104,16 @@ export class MainPage {
         )
     }
 
-    renderData(items) {
+    openCard(e) {
+        const id = e.target.dataset.id
+        const productPage = new ProductPage(this.parent, id)
+        productPage.render()
+    }
 
+    renderData(items) {
         this.pageRoot.innerHTML = ""
 
-        items.forEach((item) => {
-
+        items.forEach(item => {
             const card = new ProductCardComponent(this.pageRoot)
 
             card.render(
@@ -163,80 +125,47 @@ export class MainPage {
     }
 
     render() {
-
         this.parent.innerHTML = ""
 
         const header = new HeaderComponent(this.parent)
         header.render()
 
-        const html = this.getHTML()
-
-        this.parent.insertAdjacentHTML("beforeend", html)
+        this.parent.insertAdjacentHTML("beforeend", this.getHTML())
 
         this.getData()
 
-        document
-            .getElementById("add-card")
-            .addEventListener(
-                "click",
-                this.addCard.bind(this)
-            )
+        document.getElementById("add-card")
+            .addEventListener("click", this.addCard.bind(this))
 
-        document
-            .getElementById("search")
-            .addEventListener(
-                "input",
-                this.filterCards.bind(this)
-            )
+        document.getElementById("search")
+            .addEventListener("input", this.filterCards.bind(this))
 
-        document
-            .getElementById("calc-sum")
+        document.getElementById("calc-sum")
             .addEventListener("click", () => {
-
                 const ids = this.data.map(a => a.id)
-
-                const result = sumOfSquares(ids)
-
                 document.getElementById("analysis-result").innerText =
-                    "Сумма квадратов ID: " + result
+                    sumOfSquares(ids)
             })
 
-        document
-            .getElementById("compare-artifacts")
+        document.getElementById("compare-artifacts")
             .addEventListener("click", () => {
-
                 if (this.data.length < 2) return
-
-                const equal = isEqualObj(this.data[0], this.data[1])
-
                 document.getElementById("analysis-result").innerText =
-                    "Первые два объекта одинаковы: " + equal
+                    isEqualObj(this.data[0], this.data[1])
             })
 
-        document
-            .getElementById("remove-test")
+        document.getElementById("remove-test")
             .addEventListener("click", () => {
-
                 const ids = this.data.map(a => a.id)
-
-                const result = removeValues(ids,1,2)
-
                 document.getElementById("analysis-result").innerText =
-                    "ID без 1 и 2: " + result.join(", ")
+                    removeValues(ids, 1, 2).join(", ")
             })
 
-        document
-            .getElementById("merge-test")
+        document.getElementById("merge-test")
             .addEventListener("click", () => {
-
-                const obj1 = this.data[0]
-                const obj2 = { period: "Amarna", dynasty: "XVIII" }
-
-                const merged = merge(obj1,obj2)
-
+                const merged = merge(this.data[0], { period: "Amarna" })
                 document.getElementById("analysis-result").innerText =
                     JSON.stringify(merged)
             })
     }
-
 }
