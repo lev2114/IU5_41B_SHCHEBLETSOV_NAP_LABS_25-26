@@ -5,11 +5,9 @@ const router = require('./routes/artworks')
 const service = require('./services/artworksService')
 
 const app = express()
-
 const PORT = 3000
 
 const DATA_PATH = path.join(__dirname, 'data/artworks.json')
-
 service.init(DATA_PATH)
 
 app.use(express.json())
@@ -18,6 +16,12 @@ app.use((req, res, next) => {
     console.log(req.method, req.url)
     next()
 })
+
+app.use(
+    express.static(
+        path.join(__dirname, '../public')
+    )
+)
 
 app.use('/artworks', router)
 
