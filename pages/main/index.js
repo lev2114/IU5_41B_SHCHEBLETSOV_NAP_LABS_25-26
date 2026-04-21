@@ -8,11 +8,13 @@ import { isEqualObj } from "../../utils/amarnaMath.js"
 import { removeValues } from "../../utils/amarnaMath.js"
 import { merge } from "../../utils/amarnaMath.js"
 
+import { ajax } from "../../modules/ajax.js"
+import { artworkUrls } from "../../modules/artworkUrls.js"
+
 export class MainPage {
 
     constructor(parent) {
         this.parent = parent
-        this.data = [...amarnaCollection]
     }
 
     get pageRoot() {
@@ -90,7 +92,7 @@ export class MainPage {
 
         const cardId = e.target.dataset.id
 
-        const productPage = new ProductPage(this.parent, cardId, this.data)
+        const productPage = new ProductPage(this.parent, cardId)
 
         productPage.render()
 
@@ -108,13 +110,13 @@ export class MainPage {
         const value = document
             .getElementById("search")
             .value
-            .toLowerCase()
 
-        const filtered = this.data.filter(item =>
-            item.title.toLowerCase().includes(value)
+        ajax.get(
+            `http://localhost:3000/artworks?title=${value}`,
+            (data) => {
+                this.renderData(data)
+            }
         )
-
-        this.renderCards(filtered)
     }
 
     renderCards(list = this.data) {
@@ -134,6 +136,32 @@ export class MainPage {
         })
     }
 
+    getData() {
+        ajax.get(
+            "http://localhost:3000/artworks",
+            (data) => {
+                this.data = data
+                this.renderData(data)
+            }
+        )
+    }
+
+    renderData(items) {
+
+        this.pageRoot.innerHTML = ""
+
+        items.forEach((item) => {
+
+            const card = new ProductCardComponent(this.pageRoot)
+
+            card.render(
+                item,
+                this.openCard.bind(this),
+                this.deleteCard.bind(this)
+            )
+        })
+    }
+
     render() {
 
         this.parent.innerHTML = ""
@@ -145,7 +173,7 @@ export class MainPage {
 
         this.parent.insertAdjacentHTML("beforeend", html)
 
-        this.renderCards()
+        this.getData()
 
         document
             .getElementById("add-card")
