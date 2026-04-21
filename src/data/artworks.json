@@ -1,14 +1,37 @@
 [
   {
     "id": 1,
-    "src": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Akhenaten.jpg",
-    "title": "Akhenaten statue",
-    "text": "Amarna period sculpture"
+    "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Akhenaten_statue.jpg/330px-Akhenaten_statue.jpg",
+    "title": "Эхнатон",
+    "text": "Изображаемый правитель амарнского периода, центральная фигура амарнского искусства.",
+    "type": "человек"
+  },
+  {
+    "id": 2,
+    "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Nofretete_Neues_Museum.jpg/330px-Nofretete_Neues_Museum.jpg",
+    "title": "Нефертити",
+    "text": "Изображаемая царица, один из самых узнаваемых образов эпохи Эхнатона.",
+    "type": "человек"
   },
   {
     "id": 3,
-    "src": "img.jpg",
-    "title": "Aten temple",
-    "text": "Temple of Aten"
+    "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCiBbZxcD2wf5WLO9GXhnkR7tWECiBYeQT9HT3Q3_Sq7vDhXSV1Yk6SAl6ez34Vw5sj2Odyz4ig3QKaQ46vLiN7EThp3qryqvGE57gfbBs&s=10",
+    "title": "Царские дочери",
+    "text": "Изображаемые члены царской семьи, часто встречающиеся в амарнских сценах.",
+    "type": "человек"
+  },
+  {
+    "id": 4,
+    "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Blue_crown.svg/250px-Blue_crown.svg.png",
+    "title": "Атрибуты власти",
+    "text": "Категория предметов, связанных с царской властью, статусом и официальным образом правителя.",
+    "type": "категория предметов"
+  },
+  {
+    "id": 5,
+    "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Aten.svg/330px-Aten.svg.png",
+    "title": "Культовые символы",
+    "text": "Категория предметов религиозного назначения, связанных с культом Атона.",
+    "type": "категория предметов"
   }
 ]
