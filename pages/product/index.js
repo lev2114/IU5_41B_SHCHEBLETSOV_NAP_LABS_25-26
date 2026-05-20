@@ -1,4 +1,4 @@
-import {ProductComponent} from "../../components/service/index.js";
+import {ProductComponent} from "../../components/object/index.js";
 import {BackButtonComponent} from "../../components/back-button/index.js";
 import {MainPage} from "../main/index.js";
 import { HeaderComponent } from "../../components/header/index.js"
@@ -7,7 +7,7 @@ import * as THREE from "three"
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js"
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js"
 
-import { artworkUrls } from "../../modules/artworkUrls.js"
+import { artworkUrls } from "../../modules/objectUrls.js"
 
 export class ProductPage {
     constructor(parent, id) {

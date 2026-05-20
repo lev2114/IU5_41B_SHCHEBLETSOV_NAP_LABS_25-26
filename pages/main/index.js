@@ -1,14 +1,15 @@
 import { amarnaCollection } from "../../data/amarna.js"
-import { ProductCardComponent } from "../../components/service-card/index.js"
+import { ProductCardComponent } from "../../components/object-card/index.js"
 import { HeaderComponent } from "../../components/header/index.js"
 import { ProductPage } from "../product/index.js"
+import { EditPage } from "../edit/index.js"
 
 import { sumOfSquares } from "../../utils/amarnaMath.js"
 import { isEqualObj } from "../../utils/amarnaMath.js"
 import { removeValues } from "../../utils/amarnaMath.js"
 import { merge } from "../../utils/amarnaMath.js"
 
-import { artworkUrls } from "../../modules/artworkUrls.js"
+import { artworkUrls } from "../../modules/objectUrls.js"
 
 export class MainPage {
 
@@ -49,11 +50,20 @@ export class MainPage {
 
                     </div>
 
-                    <input
-                        id="search"
-                        class="form-control"
-                        placeholder="Поиск по амарнскому искусству"
-                    >
+                    <div class="d-flex gap-2 mt-3">
+                        <input
+                            id="search"
+                            class="form-control"
+                            placeholder="Поиск по названию"
+                        >
+
+                        <button
+                            id="search-card"
+                            class="btn btn-outline-britannica"
+                        >
+                            Поиск
+                        </button>
+                    </div>
 
                     <button
                         id="add-card"
@@ -147,6 +157,13 @@ export class MainPage {
         }
     }
 
+    editCard(e) {
+        const id = e.target.dataset.id
+
+        const editPage = new EditPage(this.parent, id)
+        editPage.render()
+    }
+
     renderCards(list = this.data) {
 
         this.pageRoot.innerHTML = ""
@@ -158,7 +175,8 @@ export class MainPage {
             card.render(
                 item,
                 this.openCard.bind(this),
-                this.deleteCard.bind(this)
+                this.deleteCard.bind(this),
+                this.editCard.bind(this)
             )
 
         })
@@ -188,7 +206,8 @@ export class MainPage {
             card.render(
                 item,
                 this.openCard.bind(this),
-                this.deleteCard.bind(this)
+                this.deleteCard.bind(this),
+                this.editCard.bind(this)
             )
         })
     }
@@ -213,12 +232,8 @@ export class MainPage {
                 this.addCard.bind(this)
             )
 
-        document
-            .getElementById("search")
-            .addEventListener(
-                "input",
-                this.filterCards.bind(this)
-            )
+        document.getElementById("search-card")
+            .addEventListener("click", this.filterCards.bind(this))
 
         document
             .getElementById("calc-sum")
