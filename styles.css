@@ -1,0 +1,234 @@
+/*   Общая страница  */
+
+.body {
+  background-color: #ffffff;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #222;
+  margin: 0;
+}
+
+
+/*   Карточка калькулятора  */
+
+.calc_background {
+  width: 340px;
+  background: #ffffff;
+  border: 1px solid #dcdcdc;
+  border-radius: 6px;
+  padding: 20px;
+  margin: 60px auto;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+.calc_buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 55px;
+  gap: 8px;
+}
+
+/*   Экран  */
+
+.result {
+  width: 100%;
+  height: 60px;
+  margin-bottom: 15px;
+  padding-right: 10px;
+  background: #f8f9fa;
+  border: 1px solid #dcdcdc;
+  text-align: right;
+  color: #111;
+  font-size: 1.6rem;
+  font-family: Georgia, serif;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+
+/*   Базовая кнопка  */
+
+.my-btn {
+  border-radius: 4px;
+  border: 1px solid #1a73e8;
+  background: #ffffff;
+  color: #1a73e8;
+  font-size: 1rem;
+  font-family: Georgia, serif;
+  cursor: pointer;
+}
+
+.my-btn:hover {
+  background: #e8f0fe;
+}
+
+.my-btn:active {
+  background: #d6e6f9;
+}
+
+
+/*   Кнопки операций  */
+
+.my-btn.primary {
+  background: #14599d;
+  color: white;
+  border: none;
+}
+
+.my-btn.primary:hover {
+  background: #083672;
+}
+
+#btn_op_plus {
+  grid-row: span 2;
+}
+
+#btn_digit_0 {
+  grid-column: span 2;
+}
+
+/*   Второстепенные операции  */
+
+.my-btn.secondary {
+  background: white;
+  border: 1px solid #14599d;
+  color: #14599d;
+}
+
+.my-btn.secondary:hover {
+  background: #e0e0e0;
+}
+
+
+/*   Кнопка "="  */
+
+.my-btn.execute {
+  font-weight: bold;
+  grid-column: span 2;
+}
+
+/*   Кнопка смены темы  */
+
+.my-btn.change_back {
+  display: block;
+  margin: 30px auto 0 auto;
+  width: 200px;
+  height: 40px;
+  background: oklch(54.6% 0.245 262.881);
+  color: white;
+  border: none;
+}
+
+.my-btn.change_back:hover {
+  background: #145a86;
+}
+
+
+/*   Кнопка GitHub  */
+
+.my-btn.github-btn {
+  display: block;
+  margin: 15px auto;
+  width: 200px;
+  height: 40px;
+  background: #24292e;
+  color: white;
+  border: none;
+}
+
+.my-btn.github-btn:hover {
+  background: #3b4045;
+}
+
+
+/*   Блок автора  */
+
+.details {
+  max-width: 600px;
+  margin: 40px auto;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.author {
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+/*   Цель  */
+
+.goal {
+  max-width: 700px;
+  margin: 40px auto;
+  font-size: 1rem;
+  color: #222;
+  font-weight: 300;
+}
+
+.goal b {
+  font-weight: bold;
+}
+
+/* Тёмная тема  */
+
+.dark-theme {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+.dark-theme .calc_background {
+  background: #2b2b2b;
+  border: 1px solid #444;
+}
+
+.dark-theme .result {
+  background: #1a1a1a;
+  border: 1px solid #444;
+  color: #ffffff;
+}
+
+.dark-theme .my-btn {
+  background: #3a3a3a;
+  color: #ffffff;
+  border: 1px solid #555;
+}
+
+.dark-theme .my-btn:hover {
+  background: #4a4a4a;
+}
+
+.dark-theme .my-btn.primary {
+  background: #145a86;
+  border: none;
+}
+
+.dark-theme .my-btn.secondary {
+  background: #444;
+}
+
+.dark-theme .goal {
+  color: #ffffff;
+}
+
+.dark-theme .details {
+  color: #e0e0e0;
+}
+
+.dark-theme .author {
+  color: #ffffff;
+}
+
+.header {
+  background: #071c2e;
+  color: white;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  font-size: 1.3rem;
+  font-family: Georgia, "Times New Roman", serif;
+}
