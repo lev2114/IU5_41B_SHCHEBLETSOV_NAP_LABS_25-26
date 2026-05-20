@@ -1,6 +1,7 @@
 import { ProductCardComponent } from "../../components/object-card/index.js"
 import { HeaderComponent } from "../../components/header/index.js"
 import { ProductPage } from "../object/index.js"
+import { EditPage } from "../edit/index.js"
 
 import { sumOfSquares, isEqualObj, removeValues, merge } from "../../utils/amarnaMath.js"
 
@@ -97,6 +98,13 @@ export class MainPage {
         )
     }
 
+    editCard(e) {
+        const id = e.target.dataset.id
+
+        const editPage = new EditPage(this.parent, id)
+        editPage.render()
+    }
+
     filterCards() {
         const value = document.getElementById("search").value
 
@@ -133,7 +141,8 @@ export class MainPage {
             card.render(
                 item,
                 this.openCard.bind(this),
-                this.deleteCard.bind(this)
+                this.deleteCard.bind(this),
+                this.editCard.bind(this)
             )
         })
     }

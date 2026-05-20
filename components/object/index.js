@@ -14,28 +14,8 @@ export class ProductComponent {
 
                         <div class="col-md-8">
                             <div class="card-body">
-
-                                <label for="service-title" class="form-label">
-                                    Название услуги
-                                </label>
-
-                                <input
-                                    id="service-title"
-                                    class="form-control mb-3"
-                                    type="text"
-                                    value="${data.title}"
-                                >
-
-                                <label for="service-text" class="form-label">
-                                    Описание услуги
-                                </label>
-
-                                <textarea
-                                    id="service-text"
-                                    class="form-control"
-                                    rows="5"
-                                >${data.text}</textarea>
-
+                                <h5 class="card-title">${data.title}</h5>
+                                <p class="card-text">${data.text}</p>
                             </div>
                         </div>
                     </div>
