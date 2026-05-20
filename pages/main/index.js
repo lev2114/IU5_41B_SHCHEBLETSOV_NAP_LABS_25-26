@@ -1,10 +1,10 @@
-import { ProductCardComponent } from "../../components/service-card/index.js"
+import { ProductCardComponent } from "../../components/object-card/index.js"
 import { HeaderComponent } from "../../components/header/index.js"
-import { ProductPage } from "../product/index.js"
+import { ProductPage } from "../object/index.js"
 
 import { sumOfSquares, isEqualObj, removeValues, merge } from "../../utils/amarnaMath.js"
 
-import { artworkUrls } from "../../modules/artworkUrls.js"
+import { artworkUrls } from "../../modules/objectUrls.js"
 import { ajax } from "../../modules/ajax.js"
 
 export class MainPage {
@@ -45,12 +45,26 @@ export class MainPage {
                         <div id="analysis-result" class="mt-2"></div>
                     </div>
 
-                    <input id="search" class="form-control" placeholder="Поиск">
+                    <div class="d-flex gap-2 mt-3">
+                        <input
+                            id="search"
+                            class="form-control"
+                            placeholder="Поиск по названию"
+                        >
+
+                        <button
+                            id="search-card"
+                            class="btn btn-outline-britannica"
+                        >
+                            Поиск
+                        </button>
+                    </div>
 
                     <button id="add-card" class="btn btn-primary mt-2">
                         Добавить карточку
                     </button>
-                </div>
+
+                    </div>
 
                 <div id="main-page" class="d-flex flex-wrap gap-3"></div>
 
@@ -137,8 +151,8 @@ export class MainPage {
         document.getElementById("add-card")
             .addEventListener("click", this.addCard.bind(this))
 
-        document.getElementById("search")
-            .addEventListener("input", this.filterCards.bind(this))
+        document.getElementById("search-card")
+            .addEventListener("click", this.filterCards.bind(this))
 
         document.getElementById("calc-sum")
             .addEventListener("click", () => {
